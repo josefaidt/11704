@@ -1,75 +1,76 @@
 {
+  "api": {},
   "auth": {
     "117045ba02d0b": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
+      "customAuth": false,
       "dependsOn": [
         {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
           "category": "function",
           "resourceName": "117045ba02d0bPreSignup",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
+          "triggerProvider": "Cognito"
         },
         {
-          "category": "function",
-          "resourceName": "117045ba02d0bPostConfirmation",
-          "triggerProvider": "Cognito",
           "attributes": [
             "Arn",
             "Name"
-          ]
+          ],
+          "category": "function",
+          "resourceName": "117045ba02d0bPostConfirmation",
+          "triggerProvider": "Cognito"
         }
       ],
-      "customAuth": false,
       "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
         "socialProviders": [
           "FACEBOOK",
           "GOOGLE"
         ],
         "usernameAttributes": [],
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyMinLength": 8,
-          "passwordPolicyCharacters": []
-        },
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
         "verificationMechanisms": [
           "EMAIL"
         ]
-      }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
     },
     "userPoolGroups": {
-      "service": "Cognito-UserPool-Groups",
-      "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
-          "category": "auth",
-          "resourceName": "117045ba02d0b",
           "attributes": [
             "UserPoolId",
             "AppClientIDWeb",
             "AppClientID",
             "IdentityPoolId"
-          ]
+          ],
+          "category": "auth",
+          "resourceName": "117045ba02d0b"
         }
-      ]
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
     }
   },
   "function": {
-    "117045ba02d0bPreSignup": {
+    "117045ba02d0bPostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "117045ba02d0bPostConfirmation": {
+    "117045ba02d0bPreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -77,9 +78,75 @@
   },
   "hosting": {
     "amplifyhosting": {
+      "lastPushTimeStamp": "2023-01-05T21:54:42.781Z",
       "service": "amplifyhosting",
-      "type": "cicd",
-      "lastPushTimeStamp": "2023-01-05T21:54:42.781Z"
+      "type": "cicd"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_117045ba02d0bPostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "117045ba02d0bPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_117045ba02d0bPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "117045ba02d0bPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_117045ba02d0bPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "117045ba02d0bPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_117045ba02d0bPreSignup_DOMAINALLOWLIST": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "117045ba02d0bPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_117045ba02d0bPreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "117045ba02d0bPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_117045ba02d0bPreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "117045ba02d0bPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
     }
   }
 }

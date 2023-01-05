@@ -14,7 +14,8 @@
     },
     "categories": {
       "auth": {
-        "117045ba02d0b": {}
+        "117045ba02d0b": {},
+        "userPoolGroups": {}
       },
       "function": {
         "117045ba02d0bPreSignup": {
