@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "email-filter-allowlist"
+  ],
+  "parentResource": "117045ba02d0b",
+  "functionName": "117045ba02d0bPreSignup",
+  "resourceName": "117045ba02d0bPreSignup",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PreSignup",
+  "triggerTemplate": "PreSignup.json.ejs",
+  "triggerEventPath": "PreSignup.event.json",
+  "roleName": "117045ba02d0bPreSignup",
+  "skipEdit": true,
+  "DOMAINALLOWLIST": "amazon.com,gmail.com",
+  "enableCors": false
+}
