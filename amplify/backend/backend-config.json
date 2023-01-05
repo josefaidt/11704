@@ -74,5 +74,12 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "type": "cicd",
+      "lastPushTimeStamp": "2023-01-05T21:54:42.781Z"
+    }
   }
 }
